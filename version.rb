@@ -1,8 +1,8 @@
 module Bree
   module Version
     MAJOR = 0
-    MINOR = 4
-    TINY  = 1
+    MINOR = 5
+    TINY  = 0
     PRE   = ""
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
