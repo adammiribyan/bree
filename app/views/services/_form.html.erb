@@ -1,0 +1,13 @@
+<td colspan="3" class="service_form">
+  <%= simple_form_for(@service, :remote => true) do |f| %>            
+    <fieldset class="last-child">
+      <%= f.input :name, :label => "Название", :autofocus => true %>
+      <%= f.input :price, :label => "Цена" %>              
+    </fieldset>
+    
+    <div class="actions">
+      <%= f.input :category_id, :as => :hidden, :input_html => { :value => category_id } %>
+      <%= f.submit submit_label, :disable_with => "Сохраняем... " %>
+    </div>
+  <% end %>
+</td>

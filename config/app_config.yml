@@ -1,0 +1,13 @@
+default:
+  
+  # Site name appears at the top of every page
+  site_name: "Милеведент"
+  site_name_en: "Milevedent"
+  
+  # Application link at the footer of each page
+  app_name: "Bree"
+  app_link: "http://adammiribyan.com"
+  
+  # HTTP Basic authentication
+  auth_name: "admin"
+  auth_password: "admin"

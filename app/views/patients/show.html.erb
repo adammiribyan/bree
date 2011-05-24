@@ -1,0 +1,128 @@
+<% title @patient.full_name %>
+
+<div id="personalInfo" class="personal-info-wrap clearfix special">
+  <div class="name">
+    <h1><%= @patient.full_name %></h1>
+    <span class="title"><%= @patient.title.mb_chars.titleize.to_s %></span>
+  </div>        
+  <ul class="details">
+    <li>
+      <label for="patient[birth_date]">дата рождения</label>
+      <span><%= I18n.l @patient.birth_date.to_date %></span>
+    </li>
+    <li>
+      <label for="patient[address]">адрес</label>
+      <span><%= @patient.address %></span>
+    </li>
+    <li>
+      <label for="patient[phone]">телефон</label>
+      <span><%= @patient.phone_number %></span>
+    </li>
+  </ul>
+  <div class="controls">          
+    <span class="delete">
+      <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :method => :delete %>
+    </span>
+    <%= link_to "Правка", edit_patient_path(@patient), :class => "admin" %>
+  </div> 
+</div> 
+
+<div class="liner">        
+  <%= render "teeth_chart" %>  
+
+  <div id="patientNotes" class="patient-notes-wrap">
+    <div>
+      <h3>Добавить комментарий о пациенте</h3>
+      <%= render "comments/form" %>
+    </div>
+    <ul class="patient-notes">
+      <%= render @patient.comments.order("created_at desc") %>
+    </ul>
+  </div>  
+</div>
+
+<% content_for(:sidebar) { %>
+  <div class="button-to-add-new-wrap clearfix">
+    <span class="button">
+      <a href="">
+        <span>Новое посещение</span>
+      </a>
+    </span>
+  </div>
+
+  <div id="additionalInfo" class="sidebox-wrapper special">
+    <h5>
+      Дополнительная информация
+      <div class="controls">
+        <%= link_to "Правка", edit_patient_path(@patient, :anchor => "additionalInfo"), :class => "admin" %>
+      </div>
+    </h5>
+    <ul>
+      <li>
+        <label>Гепатит</label>
+        <span><%= @patient.hepatitis %></span>
+      </li>
+      <li>
+        <label>Туберкулез</label>
+        <span><%= @patient.tuberculosis %></span>
+      </li>
+      <li>
+        <label>Прикус</label>
+        <span><%= @patient.occlusion %></span>
+      </li>
+      <li>
+        <label>Аллергия</label>
+        <span><%= @patient.allergy %></span>
+      </li>
+      <li>
+        <label>Онкология</label>
+        <span><%= @patient.oncology %></span>
+      </li>
+      <li>
+        <label>Слизистая</label>
+        <span><%= @patient.mucosa %></span>
+      </li>
+    </ul>
+    
+    <h5>Анкета</h5>
+    <% unless @patient.profile.present? %>
+      <%= simple_form_for(@patient, :html => { :multipart => true, :id => "patient_profile_form" }) do |f| %>
+        <div><%= image_tag "dots-white.gif", :class => "dots" %></div>
+        <%= file_field(:patient, :profile) %>
+      <% end %>
+    <% else %>
+      <%= link_to truncate(File.basename(@patient.profile.url.to_s), :length => 25), @patient.profile.url, :target => "blank", :id => "patient_profile" %>
+    <% end %>
+  </div>
+
+  <div id="recentVisits" class="sidebox-wrapper">
+    <h5>Недавние посещения</h5>
+    <table>
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Врач</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="">2 дня назад</a></td>
+          <td>Еременко О.</td>
+        </tr>
+        <tr>
+          <td><a href="">4 дня назад</a></td>
+          <td>Еременко О.</td>
+        </tr>
+        <tr>
+          <td><a href="">10 февраля</a></td>
+          <td>Еременко О.</td>
+        </tr>
+        <tr>
+          <td><a href="">3 февраля</a></td>
+          <td>Еременко О.</td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to "Все посещения", root_url %>    
+  </div>
+<% } %>

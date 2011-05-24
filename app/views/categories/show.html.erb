@@ -1,0 +1,53 @@
+<% title @category.name.mb_chars.titleize.to_s %>
+
+<h1 class="special">
+  <%= render "breadcrumbs" %>  
+  <div class="header-button"><%= link_to "Назад", parent_path, :"data-pjax" => "#content" %></div>
+</h1>
+
+<div class="liner">
+  <table id="categories">
+    <thead>
+      <tr>
+        <th colspan="2"><h2>Категории</h2</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="3"><%= link_to "Добавить категорию", new_category_path(:parent_id => @category), :class => "admin" %></td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <%= child_categories %>      
+    </tbody>
+  </table>
+  
+  <table id="services">
+    <thead>
+      <tr>
+        <th colspan="3"><h2>Услуги</h2</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="3"><%= link_to "Добавить услугу", "", :class => "admin", :id => "new_service_form_link" %></td>
+      </tr>
+      <tr id="service_form">
+        <%= render "services/form" %>
+      </tr>
+    </tfoot>
+    <tbody>
+      <%= services %>
+    </tbody>    
+  </table>
+</div>
+
+<% content_for(:sidebar) { %>
+  <div class="button-to-add-new-wrap clearfix" style="display: none;">
+    <span class="button">
+      <%= link_to content_tag(:span, "Новая категория"), new_category_path(:parent_id => params[:id]) %>
+    </span>
+  </div>
+  
+  <%= render "sidebar" %>
+<% } %>

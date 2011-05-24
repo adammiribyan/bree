@@ -1,0 +1,19 @@
+<% title "Шаблоны" %>
+
+<h1 class="special">Шаблоны</h1>
+
+<div id="templates">
+  <%= render @templates %>
+</div>
+
+<%= highlight_when_changed %>
+
+<% content_for(:sidebar) { %>
+  <div class="button-to-add-new-wrap clearfix">
+    <span class="button">
+      <%= link_to content_tag(:span, "Новый шаблон"), new_template_path %>
+    </span>
+  </div>
+  
+  <%= render "sidebar" %>
+<% } %>

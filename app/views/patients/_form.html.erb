@@ -1,0 +1,42 @@
+<%= simple_form_for(@patient, :html => { :multipart => true }) do |f| %>
+  <fieldset>
+    <%= f.input :last_name, :label => "Фамилия", :autofocus => true %>
+    <%= f.input :first_name, :label => "Имя" %>
+    <%= f.input :middle_name, :label => "Отчество" %>
+    <%= f.input :title, :label => "Специальность" %>
+  </fieldset>
+  
+  <fieldset>    
+    <%= f.input :profile, :as => :file, :label => "Анкета пациента", :hint => "Скан или фотография заполненной пациентом анкеты." %>
+    <% if @patient.profile.present? %>
+      <%= link_to truncate(File.basename(@patient.profile.url.to_s), :length => 25), @patient.profile.url, :target => "blank", :id => "patient_profile" %>
+    <% end %>
+  </fieldset>
+  
+  <fieldset>
+    <%= f.input :birth_date, :as => :date, :start_year => Date.today.year - 90,
+                                :end_year => Date.today.year - 6,
+                                :order => [:day, :month, :year], :label => "Дата рождения" %>
+    <%= f.input :address, :label => "Адрес" %>
+    <%= f.input :phone_number, :label => "Телефон" %>
+  </fieldset>  
+  
+  <fieldset id="additionalInfo" class="last-child">
+    <%= f.input :hepatitis, :label => "Гепатит" %>
+    <%= f.input :tuberculosis, :label => "Туберкулез" %>
+    <%= f.input :occlusion, :label => "Прикус" %>
+    <%= f.input :allergy, :label => "Аллергия" %>
+    <%= f.input :oncology, :label => "Онкология" %>
+    <%= f.input :mucosa, :label => "Слизистая" %>  
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit submit_label %> или <%= link_to "вернуться назад", @patient, :class => "admin" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  if (window.location.hash == "#additionalInfo") {
+    $("input#patient_hepatitis").focus();
+  }  
+</script>

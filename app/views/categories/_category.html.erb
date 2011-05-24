@@ -1,0 +1,14 @@
+<tr id="<%= category.id %>">
+  <td>
+    <h3><%= link_to category.name.mb_chars.titleize.to_s, category, :"data-pjax" => "#content" %></h3>
+    <p class="description"><%= category.description %></p>
+  </td>
+  <td>
+    <div class="controls">          
+      <span class="delete">
+        <%= link_to content_tag(:span, "", :class => "icon"), category, :confirm => 'Вы уверены?', :method => :delete, :remote => true %>
+      </span>
+      <%= link_to_edit "category", category %>
+    </div>
+  </td>
+</tr>

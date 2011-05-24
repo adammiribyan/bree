@@ -1,0 +1,21 @@
+<% title "Врачи" %>
+
+<h1 class="special">Врачи</h1>
+
+<div id="doctors">
+  <ul>
+    <%= render @doctors %>
+  </ul>
+</div>
+
+<%= highlight_when_changed %>
+
+<% content_for(:sidebar) { %>
+  <div class="button-to-add-new-wrap clearfix">
+    <span class="button">
+      <%= link_to content_tag(:span, "Новый врач"), new_doctor_path %>
+    </span>
+  </div>
+  
+  <%= render "sidebar" %>
+<% } %>

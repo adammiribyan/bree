@@ -1,0 +1,9 @@
+<% if @category.depth > 0 %>
+  <ul class="breadcrumbs">
+  <% breadcrumbs_for(@category).each do |node| %>
+    <li><%= link_to_unless_current node.name, node, :"data-pjax" => "#content" %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <%= @category.name.mb_chars.titleize.to_s %>
+<% end %>

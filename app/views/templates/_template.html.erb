@@ -1,0 +1,15 @@
+<%= div_for template do %>
+  <h1 class="template_name">
+    <%= template.name.mb_chars.titleize.to_s %>
+    <small>был изменен <strong><%= I18n.l template.updated_at.to_date %></strong></small>
+    <div class="controls">          
+      <span class="delete">
+        <%= link_to content_tag(:span, "", :class => "icon"), template, :confirm => 'Вы уверены?', :method => :delete %>
+      </span>
+      <%= link_to "Правка", edit_template_path(template), :class => "admin" %>
+    </div> 
+  </h1>
+  <div class="template_body">
+    <%= template.body.markdown.html_safe %>
+  </div>
+<% end %>

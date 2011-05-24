@@ -1,0 +1,20 @@
+<%= simple_form_for(@template) do |f| %>  
+  <fieldset>
+    <%= f.input :name, :label => "Название", :hint => "Заголовок шаблона в истории болезни.", :autofocus => true %>
+  </fieldset>
+  
+  <fieldset class="last-child">    
+    <%= f.input :body, :label => "Содержание", :hint => "#{link_to 'Подсказки', 'http://ru.wikipedia.org/wiki/Markdown#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B_.D1.81.D0.B8.D0.BD.D1.82.D0.B0.D0.BA.D1.81.D0.B8.D1.81.D0.B0', :target => 'blank'} по форматированию.".html_safe %>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit submit_label %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('textarea#template_body').autoResize({
+    // Quite slow animation:
+    animateDuration : 500
+  });
+</script>

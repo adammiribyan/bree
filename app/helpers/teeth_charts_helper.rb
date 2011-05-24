@@ -1,0 +1,2 @@
+module TeethChartsHelper
+end

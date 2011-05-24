@@ -1,0 +1,16 @@
+<%= simple_form_for(@category) do |f| %>
+  <%= parent_category_name %>
+  
+  <fieldset>
+    <%= f.input :name, :label => "Название", :autofocus => true %>
+  </fieldset>
+
+  <fieldset class="last-child">
+    <%= f.input :description, :label => "Описание", :hint => "Необязательно для заполнения." %>
+  </fieldset>
+  
+  <div class="actions">
+    <%= f.input :parent_id, :as => :hidden %>
+    <%= f.submit submit_label %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
+  </div>
+<% end %>

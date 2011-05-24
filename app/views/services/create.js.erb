@@ -1,0 +1,5 @@
+$("#services .simple_form .actions #service_submit").addClass("loading");
+$(":input:not(input[type=submit]):not(input[type=hidden]):not(input#search_query)").val("");
+$("#services tbody").html("<%= escape_javascript(render @services) %>");
+$("#services tbody tr:last-child").effect("highlight", {}, 900);
+$("#services .simple_form #service_name").focus();

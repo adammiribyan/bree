@@ -1,0 +1,10 @@
+<li id="<%= doctor.id %>">
+  <%= photo_of doctor %>
+  <h3><%= doctor.full_name %></h3>
+  <ul class="data">
+    <li class="title"><%= doctor.title.mb_chars.titleize.to_s %></li>
+    <li><%= mail_to doctor.email, doctor.email, :class => "email" %></li>
+    <li><%= doctor.phone_number %></li>
+    <li><%= link_to "Правка", edit_doctor_path(doctor), :class => "admin" %></li>
+  </ul>
+</li>

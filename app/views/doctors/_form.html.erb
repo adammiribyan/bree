@@ -1,0 +1,47 @@
+<%= simple_form_for(@doctor) do |f| %>
+  <% unless controller.action_name == "new" %>
+    <div id="patient_photo"> <!-- todo: replace with a div_for helper -->
+      <%= photo_of @doctor %>
+      <%= link_to "Изменить", "", :class => "admin hide_while_photo", :id => "switch_to_photo" %>
+    </div>
+    
+    <% content_for(:sidebar) { %>  
+      <div class="sidebox-wrapper">
+        <h5>Удалить этого врача?</h5>
+        <p>Это безвозвратно удалит врача из системы. Но не волнуйтесь, данные о всех его пациентах и оказанных услугах останутся на месте.</p>
+        <p><%= link_to "Удалить", @doctor, :class => "admin", :confirm => "Вы уверены?", :method => :delete %></p>        
+      </div>
+    <% } %>
+  <% end %>
+
+  <fieldset class="<%= float_to_right_unless_new %> hide_while_photo">
+    <%= f.input :last_name, :label => "Фамилия", :autofocus => true %>
+    <%= f.input :first_name, :label => "Имя" %>
+    <%= f.input :middle_name, :label => "Отчество" %>
+    <%= f.input :title, :label => "Должность", :hint => "Хирург, имплантолог, медсестра…" %>
+  </fieldset>
+
+  <fieldset class="<%= float_to_right_unless_new %> last-child hide_while_photo">
+    <%= f.input :birth_date, :as => :date, :start_year => Date.today.year - 90,
+                                :end_year => Date.today.year - 6,
+                                :order => [:day, :month, :year], :label => "Дата рождения",
+                                :hint => "Для будущих напоминаний." %>
+    <%= f.input :phone_number, :label => "Телефон" %>
+    <%= f.input :email, :label => "Электропочта" %>    
+  </fieldset>
+  
+  <div class="clear hide_while_photo"></div>
+
+  <div class="actions hide_while_photo">
+    <%= f.submit submit_label %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
+  </div>
+<% end %>
+
+<%= simple_form_for(@doctor, :html => { :multipart => true, :id => "doctor_photo_form" }) do |f| %>
+  <fieldset class="<%= float_to_right_unless_new %> last-child">
+    <h3>Изменить фотографию</h3>
+    <div><%= image_tag "dots-white.gif", :class => "dots" %></div>
+    <%= file_field(:doctor, :photo) %>
+    <p class="cancel">или <%= link_to "вернуться назад", :back, :class => "admin", :id => "switch_to_data" %></p>
+  </fieldset> 
+<% end %>

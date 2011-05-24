@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  title: MyString
+  birth_date: 2011-04-14
+  address: MyString
+  phone_number: MyString
+  hepatitis: MyString
+  tuberculosis: MyString
+  occlusion: MyString
+  allergy: MyString
+  oncology: MyString
+  mucosa: MyString
+
+two:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  title: MyString
+  birth_date: 2011-04-14
+  address: MyString
+  phone_number: MyString
+  hepatitis: MyString
+  tuberculosis: MyString
+  occlusion: MyString
+  allergy: MyString
+  oncology: MyString
+  mucosa: MyString

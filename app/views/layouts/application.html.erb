@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title><%= yield :title %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>     
+    <%= csrf_meta_tag %>
+  </head>
+  <body class="<%= body_classes.join(" ") if body_classes.present? %>">    
+    <%= render "layouts/header" %>
+    <div id="layout"> 
+      <div class="inner">
+        <div id="content" class="clearfix">
+          <%= yield %>
+        </div>
+        <div id="sidebar" class="clearfix">
+          <%= yield :sidebar %>          
+        </div>      
+        <div id="footer" class="clearfix">
+          <p>Managed by <a href="<%= AppConfig[:app_link] %>"><%= AppConfig[:app_name] %></a>.</p>
+        </div>        
+      </div>      
+    </div>
+    <div id="loading"><%= image_tag "dots-white.gif" %></div>
+  </body>  
+</html>
