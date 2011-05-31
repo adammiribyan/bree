@@ -12,4 +12,5 @@
 //= require pjax
 //= require search_field
 //= require autocomplete_rails
+//= require backbone
 //= require_tree .

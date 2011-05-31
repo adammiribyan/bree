@@ -24,7 +24,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   # GET /appointments/new.xml
   def new
-    @appointment = Appointment.new
+    @patient = Patient.find_by_id(params[:patient_id])
+    @appointment = @patient.appointments.new
 
     respond_to do |format|
       format.html # new.html.erb

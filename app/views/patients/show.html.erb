@@ -27,8 +27,11 @@
   </div> 
 </div> 
 
-<div class="liner">        
-  <%= render "teeth_chart" %>  
+<div class="liner">  
+  <div id="teethChart" class="teeth-chart-wrap">
+    <h3>Таблица зубов пациента</h3>
+    <%= render "teeth_chart" %>
+  </div>
 
   <div id="patientNotes" class="patient-notes-wrap">
     <div>
@@ -44,9 +47,9 @@
 <% content_for(:sidebar) { %>
   <div class="button-to-add-new-wrap clearfix">
     <span class="button">
-      <a href="">
+      <%= link_to new_patient_appointment_path(@patient) do %>
         <span>Новое посещение</span>
-      </a>
+      <% end %>
     </span>
   </div>
 
