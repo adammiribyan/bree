@@ -13,4 +13,5 @@
 //= require search_field
 //= require autocomplete_rails
 //= require backbone
+//= require jquery_backbone_autocomplete
 //= require_tree .

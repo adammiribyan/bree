@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc1'
+gem 'rails', '3.1.0.rc3'
 
 gem 'mysql2'
 gem 'unicode'
@@ -27,7 +27,7 @@ gem 'rdiscount'
 
 group :development do
   gem 'capistrano'
-  gem 'thin'  
+  # gem 'thin'  
   gem 'guard-livereload'
   gem 'guard-sass'
 end
