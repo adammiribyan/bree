@@ -1,4 +1,4 @@
 $("#comment_body").val("");
-$("ul.patient-notes").html("<%= escape_javascript(render @comments) %>");
+$("ul.patient-notes").html("<%= escape_javascript(render(@comments)).html_safe %>");
 $("ul.patient-notes li:first-child").effect("highlight", {}, 900);
 $("#comment_body").focus();

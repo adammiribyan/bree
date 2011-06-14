@@ -1,3 +1,3 @@
 $(":input:not(input[type=submit]):not(input[type=hidden]):not(input#search_query)").val("");
-$("#services tbody").html("<%= escape_javascript(render @services) %>");
+$("#services tbody").html("<%= escape_javascript(render(@services)).html_safe %>");
 $("#services tbody tr#<%= @service.id %>").effect("highlight", {}, 900);
