@@ -9,9 +9,9 @@
 //= require jquery_ui
 //= require jquery_autoresize
 //= require jquery_jeditable
+//= require autocomplete_rails
 //= require pjax
 //= require search_field
-//= require autocomplete_rails
 //= require backbone
 //= require jquery_backbone_autocomplete
 //= require_tree .

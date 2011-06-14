@@ -1,5 +1,28 @@
-/* 
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+#service_query {
+  width: 98%;
+  margin: 1.25em auto;
+  font-size: 1.1666em;
+}
+
+table#line_items {
+  margin: 1.25em 0 0 0;
+  width: 100%;
+  
+  th {
+    border-bottom: 1px solid #ccc;
+    font-style: italic;
+    padding-bottom: 3px;
+  }
+  
+  tbody {
+    font-size: 1.1666em;
+    
+    tr.odd {
+      background-color: #f1f8fe;
+    }
+    
+    td {
+      padding: 0.5em 0.4166em;
+    }
+  }
+}

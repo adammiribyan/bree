@@ -5,38 +5,74 @@
       <%= f.label "Пациент" %>
       <%= @patient.abbreviated_name %>
     <% end %>
-    <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач", :autofocus => true %>
+    <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач" %>
   </fieldset>  
   
-  <fieldset class="last-child">
+  <!-- fieldset class="last-child">
     <div id="teethChart" class="teeth-chart-wrap">
       <%= render "patients/teeth_chart" %>
     </div>
-  </fieldset>
+  </fieldset -->
   
   <table id="line_items">
     <thead>
       <tr>
-        <th width="70%">Услуга</th>
+        <th width="65%">Услуга</th>
         <th width="10%">Кол-во</th>
         <th width="20%">Стоимость</th>
+        <th width="5%">&nbsp;</th>
       </tr>
     </thead>
     <tfoot>
       <tr>
-        <td></td>
+        <td colspan="3">
+          <div class="input string">
+            <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу...", autofocus="true" />  
+          </div>          
+        </td>
       </tr>
     </tfoot>
     <tbody>
-      <tr>
-        <td><td>
-        <td></td>
-        <td></td>
+      <tr class="<%= cycle("even", "odd") -%>">
+        <td>Анестезия</td>
+        <td>&times;1</td>
+        <td><%= number_to_currency 200 %></td>
+        <td>
+          <div class="controls">
+            <span class="delete">
+              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr class="<%= cycle("even", "odd") -%>">
+        <td>Пломба</td>
+        <td>&times;1</td>
+        <td><%= number_to_currency 220 %></td>
+        <td>
+          <div class="controls">
+            <span class="delete">
+              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr class="<%= cycle("even", "odd") -%>">
+        <td>Лечение</td>
+        <td>&times;1</td>
+        <td><%= number_to_currency 280 %></td>
+        <td>
+          <div class="controls">
+            <span class="delete">
+              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
+            </span>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
   
   <div class="actions">
-    <%= f.submit submit_label %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
+    <%= f.submit "Сохранить" %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
   </div>
 <% end %>

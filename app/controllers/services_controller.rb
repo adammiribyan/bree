@@ -1,10 +1,18 @@
 class ServicesController < ApplicationController  
   def index
     @services = Service.all
+    
+    respond_to do |format|
+      format.json { render :json => @services }
+    end
   end
 
   def show
     @service = Service.find(params[:id])
+    
+    respond_to do |format|
+      format.json { render :json => @service }
+    end
   end
 
   def new
