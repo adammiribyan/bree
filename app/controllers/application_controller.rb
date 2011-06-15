@@ -1,19 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_filter :authenticate
+  # HTTP Authentication
+  http_basic_authenticate_with :name => AppConfig[:auth_name], :password => AppConfig[:auth_password]
   
   helper_method :pjax?
   
   protect_from_forgery
-  autocomplete :patient, :full_name, :full => true  
+  autocomplete :patient, :full_name, :full => true
   
   private
-    def authenticate
-      authenticate_or_request_with_http_basic(AppConfig[:site_name_en]) do |user_name, password|
-        user_name == AppConfig[:auth_name] && 
-        password == AppConfig[:auth_password]
-      end
-    end
-    
+
     def handle_pjax
       render :layout => false if pjax?
     end
