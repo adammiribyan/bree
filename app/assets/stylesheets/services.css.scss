@@ -50,6 +50,13 @@ ul.services_autocomplete {
 
   li {
     padding: 0.416em 0.1666em;
+    position: relative;
+    
+    .additional-attr {
+      font-family: "Courier New", Courier, serif;
+      font-size: 98%;
+      float: right;
+    }
   }
   
   li.selected {

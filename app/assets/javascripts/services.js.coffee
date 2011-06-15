@@ -21,6 +21,7 @@ jQuery ->
   $("#service_query").bb_autocomplete
     collection: Services
     attr: "name"
+    additional_attr: "price"
     ul_class: "services_autocomplete"
     noCase: true
   

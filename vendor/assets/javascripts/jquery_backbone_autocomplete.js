@@ -74,6 +74,7 @@
 	var defaults = {
 		collection: null,
 		attr: null,
+    additional_attr: null,
 		noCase: false,
 		scrollable_ancestor_em: null,
 		onselect: null,
@@ -147,6 +148,7 @@
 			var options = data.options;
 			var collection = options.collection;
 			var attr = options.attr;
+      var additional_attr = options.additional_attr
 			
 			var list_em = data.list_em;
 			
@@ -188,10 +190,19 @@
 			
 			// Build LI elements in our UL
 			for (var i = 0; i < result.length; i++) {
-				var model = result[i];
-				var found = model.get(attr);
-				var html = '<strong>'+found.substr(0, str.length)+'</strong>'+found.substr(str.length);
+				var model = result[i];        
+        var found = model.get(attr);
+				var html = '<strong>'+found.substr(0, str.length)+'</strong>'+found.substr(str.length);                
 				var li_em = $("<li>"+html+"</li>");
+        
+        if (additional_attr) {
+          var additional_element = $("<span>")
+            .addClass("additional-attr")
+            .text(model.get(additional_attr))
+            .append(" руб.")
+            .appendTo(li_em);;
+        }
+        
 				li_em.mouseover(function() {
 					$(this).addClass('selected')
 						.siblings('.selected').removeClass('selected');
