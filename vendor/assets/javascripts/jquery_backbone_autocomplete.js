@@ -102,7 +102,7 @@
 				var list_em = $('<ul>') // UL
 					.addClass(options.ul_class || defaults.ul_class)
 					.hide()
-					.insertBefore($this);
+					.insertAfter($this);
 				
 				// Bind events
 				$this.bind('focus.autocomplete', function(e) {
@@ -181,7 +181,7 @@
 				if (options.width) {
 					list_em.width(options.width);
 				} else {
-					list_em.width($this.outerWidth(true)+5);
+					list_em.width($this.outerWidth(true));
 				}
 				list_em.show();
 			}

@@ -25,4 +25,36 @@ table#line_items {
       padding: 0.5em 0.4166em;
     }
   }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  input#service_query {
+    margin-bottom: 0;
+  }
+}
+
+ul.services_autocomplete {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 85%;
+  font-size: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+  clear: both;
+  z-index: 1000;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+
+  li {
+    padding: 0.416em 0.1666em;
+  }
+  
+  li.selected {
+    background-color: #0073ea;    
+    color: white;
+    font-weight: bold;
+  }
 }
