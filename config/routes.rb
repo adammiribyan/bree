@@ -1,4 +1,6 @@
 Bree::Application.routes.draw do
+  resources :line_items
+
   resources :templates, :except => :show
   resources :comments
   resources :doctors

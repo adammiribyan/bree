@@ -33,6 +33,11 @@ Factory.define :patient do |p|
   end
 end
 
+Factory.define :service do |s|
+  s.name "Лечение"
+  s.price 299  
+end
+
 Factory.define :teeth_chart do |c|
   c.tooth_11 ""
   c.tooth_12 ""
