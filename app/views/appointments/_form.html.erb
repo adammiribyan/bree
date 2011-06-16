@@ -14,7 +14,7 @@
     </div>
   </fieldset -->
   
-  <table id="line_items">
+  <table id="line_items_table">
     <thead>
       <tr>
         <th width="70%">Услуга</th>
@@ -26,7 +26,8 @@
       <tr>
         <td colspan="3">
           <div class="input string">
-            <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу…" />  
+            <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу…" />
+            <%= f.input :id, :as => :hidden, :input_html => { :value => "1" } %>
           </div>          
         </td>
       </tr>
@@ -67,6 +68,12 @@
       </tr>
     </tbody>
   </table>
+  
+  <script id="line_item_template" type="text/html">
+    <td>{{name}}</td>
+    <td>{{price}}</td>
+    <td></td>
+  </script>
   
   <div class="actions">
     <%= f.submit "Сохранить" %> или <%= link_to "вернуться назад", :back, :class => "admin" %>

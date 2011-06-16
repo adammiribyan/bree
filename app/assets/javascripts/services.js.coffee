@@ -24,4 +24,5 @@ jQuery ->
     additional_attr: "price"
     ul_class: "services_autocomplete"
     noCase: true
+    onselect: App.createLineItem
   
