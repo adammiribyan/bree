@@ -17,9 +17,8 @@
   <table id="line_items">
     <thead>
       <tr>
-        <th width="65%">Услуга</th>
-        <th width="10%">Кол-во</th>
-        <th width="20%">Стоимость</th>
+        <th width="70%">Услуга</th>
+        <th width="25%">Стоимость</th>
         <th width="5%">&nbsp;</th>
       </tr>
     </thead>
@@ -27,7 +26,7 @@
       <tr>
         <td colspan="3">
           <div class="input string">
-            <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу..." />  
+            <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу…" />  
           </div>          
         </td>
       </tr>
@@ -35,7 +34,6 @@
     <tbody>
       <tr class="<%= cycle("even", "odd") -%>">
         <td>Анестезия</td>
-        <td>&times;1</td>
         <td><%= number_to_currency 200 %></td>
         <td>
           <div class="controls">
@@ -47,7 +45,6 @@
       </tr>
       <tr class="<%= cycle("even", "odd") -%>">
         <td>Пломба</td>
-        <td>&times;1</td>
         <td><%= number_to_currency 220 %></td>
         <td>
           <div class="controls">
@@ -59,7 +56,6 @@
       </tr>
       <tr class="<%= cycle("even", "odd") -%>">
         <td>Лечение</td>
-        <td>&times;1</td>
         <td><%= number_to_currency 280 %></td>
         <td>
           <div class="controls">
