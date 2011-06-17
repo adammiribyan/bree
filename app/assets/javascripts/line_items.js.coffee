@@ -22,7 +22,6 @@ jQuery ->
     
     render: =>
       line_item = @model.toJSON()
-      console.log(line_item)
       ($ @el).html(ich.line_item_template(line_item))
       @
   
@@ -32,7 +31,7 @@ jQuery ->
     
     initialize: ->
       LineItems.bind('add', @addOne)
-      LineItems.bind('refresh', @addAll)
+      # LineItems.bind('refresh', @addAll)
       LineItems.bind('all', @render)
       
       LineItems.fetch()
@@ -43,7 +42,7 @@ jQuery ->
         id: "line_item_#{line_item.id}"
       })
       (@$ "#line_items_table tbody").append(view.render().el)
-      
+                  
     addAll: =>
       LineItems.each(@addOne)      
     
@@ -54,10 +53,9 @@ jQuery ->
         id: model.get("id")
         name: model.get("name")
         price: model.get("price")
-      }
-        
+      }        
     
-    createLineItem: (model) =>
+    createLineItem: (model) =>  
       params = @newAttributes(model)
       LineItems.create(params)
     
