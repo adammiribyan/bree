@@ -49,6 +49,8 @@ jQuery ->
     
     newAttributes: (model) ->
       line_item: {
+        service_id: model.get("id")
+        appointment_id: parseInt(($ "input#appointment_id").val()) # TODO
         id: model.get("id")
         name: model.get("name")
         price: model.get("price")
