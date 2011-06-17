@@ -38,16 +38,18 @@ jQuery ->
       LineItems.fetch()
       
     addOne: (line_item) =>
-      view = new LineItemView({ model: line_item })
-      (@$ "#line_items_table").append(view.render().el)
+      view = new LineItemView({ 
+        model: line_item 
+        id: "line_item_#{line_item.id}"
+      })
+      (@$ "#line_items_table tbody").append(view.render().el)
       
     addAll: =>
-      LineItems.each(@addOne)
+      LineItems.each(@addOne)      
     
     newAttributes: (model) ->
       line_item: {
-        service_id: model.get("id")
-        appointment_id: parseInt(($ "input#appointment_id").val())
+        id: model.get("id")
         name: model.get("name")
         price: model.get("price")
       }

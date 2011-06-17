@@ -3,17 +3,15 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.all
     
     respond_to do |format|
-      format.json { render :json => @line_item }
+      format.json { render :json => @line_item.to_json(:methods => [ :name, :price ]) }
     end
   end
 
   def show
     @line_item = LineItem.find(params[:id])
-    @line_item.name = @line_item.service.name
-    @line_item.price = @line_item.service.price
     
     respond_to do |format|
-      format.json { render :json => @line_item }
+      format.json { render :json => @line_item.to_json(:methods => [ :name, :price ]) }
     end
   end
   
@@ -24,7 +22,7 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.json { render :json => @line_item }
+        format.json { render :json => @line_item.to_json(:methods => [ :name, :price ]) }
       end
     end
   end
@@ -32,9 +30,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-
-    respond_to do |format|
-      format.json  { head :ok }
-    end
+    
+    respond_to :js
   end
 end

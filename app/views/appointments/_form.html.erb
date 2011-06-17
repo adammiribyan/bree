@@ -33,46 +33,20 @@
       </tr>
     </tfoot>
     <tbody>
-      <tr class="<%= cycle("even", "odd") -%>">
-        <td>Анестезия</td>
-        <td><%= number_to_currency 200 %></td>
-        <td>
-          <div class="controls">
-            <span class="delete">
-              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
-            </span>
-          </div>
-        </td>
-      </tr>
-      <tr class="<%= cycle("even", "odd") -%>">
-        <td>Пломба</td>
-        <td><%= number_to_currency 220 %></td>
-        <td>
-          <div class="controls">
-            <span class="delete">
-              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
-            </span>
-          </div>
-        </td>
-      </tr>
-      <tr class="<%= cycle("even", "odd") -%>">
-        <td>Лечение</td>
-        <td><%= number_to_currency 280 %></td>
-        <td>
-          <div class="controls">
-            <span class="delete">
-              <%= link_to content_tag(:span, "", :class => "icon"), @patient, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
-            </span>
-          </div>
-        </td>
-      </tr>
+            
     </tbody>
   </table>
   
   <script id="line_item_template" type="text/html">
     <td>{{name}}</td>
     <td>{{price}}</td>
-    <td></td>
+    <td>
+      <div class="controls">
+        <span class="delete">
+          <a href="/line_items/{{id}}" data-remote="true" data-confirm="Вы уверены?" data-method="delete"><span class="icon"></span></a>
+        </span>
+      </div>
+    </td>
   </script>
   
   <div class="actions">
