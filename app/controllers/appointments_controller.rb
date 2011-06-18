@@ -21,20 +21,16 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # GET /appointments/new
-  # GET /appointments/new.xml
   def new
     @patient = Patient.find_by_id(params[:patient_id])
-    @appointment = @patient.appointments.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @appointment }
+    @appointment = @patient.appointments.build
+    
+    if @appointment.save
+      redirect_to edit_appointment_path(@appointment)
     end
   end
-
-  # GET /appointments/1/edit
-  def edit
+  
+  def edit    
     @appointment = Appointment.find(params[:id])
   end
 

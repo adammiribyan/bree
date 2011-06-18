@@ -1,18 +1,12 @@
-<%= simple_form_for([@patient, @appointment]) do |f| %>
+<%= simple_form_for @appointment do |f| %>
   <fieldset>
     <%= f.input :created_at, :as => :date, :label => "Дата" %>
     <%= content_tag :div, :class => "input" do%>
       <%= f.label "Пациент" %>
-      <%= @patient.abbreviated_name %>
+      <%= @appointment.patient.abbreviated_name %>
     <% end %>
     <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач" %>
   </fieldset>  
-  
-  <!-- fieldset class="last-child">
-    <div id="teethChart" class="teeth-chart-wrap">
-      <%= render "patients/teeth_chart" %>
-    </div>
-  </fieldset -->
   
   <table id="line_items_table">
     <thead>
@@ -25,13 +19,13 @@
     <tfoot>
       <tr class="summary">
         <td>Итого</td>
-        <td colspan="2" id="price_sum"><%= Appointment.find(1).line_items.to_a.sum(&:price) %></td>
+        <td colspan="2" id="price_sum"><%= @appointment.line_items.to_a.sum(&:price) %></td>
       </tr>
       <tr>
         <td colspan="3">
           <div class="input string">
             <input type="text" class="string" name="line_item_query" id="service_query", placeholder="Добавить услугу…" />
-            <%= f.input :id, :as => :hidden, :input_html => { :value => "1" } %>
+            <%= f.input :id, :as => :hidden, :input_html => { :value => @appointment.id } %>
           </div>          
         </td>
       </tr>
