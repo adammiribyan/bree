@@ -1,7 +1,7 @@
 jQuery ->
   # Model
   class window.LineItem extends Backbone.Model
-    url: -> if @id then "/line_items/#{@id}" else "/line_items"
+    url: -> if @id then "/line_items/#{@id}?" else "/line_items?appointment_id=#{parseInt(($ 'input#appointment_id').val())}"
     
     clear: ->
       @destroy()
@@ -10,7 +10,7 @@ jQuery ->
   # Collection
   class window.LineItemCollection extends Backbone.Collection
     model: LineItem
-    url: "/line_items"    
+    url: "/line_items?appointment_id=#{parseInt(($ 'input#appointment_id').val())}"    
   
   window.LineItems = new LineItemCollection
   

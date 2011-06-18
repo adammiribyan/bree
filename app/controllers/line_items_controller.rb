@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   def index
-    @line_item = LineItem.all
+    @line_item = LineItem.find_by_appointment_id(params[:appointment_id])
     
     respond_to do |format|
       format.json { render :json => @line_item.to_json(:methods => [ :name, :price ]) }
