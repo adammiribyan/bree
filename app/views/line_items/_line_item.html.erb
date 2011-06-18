@@ -1,10 +1,10 @@
 <%= content_tag_for(:tr, line_item) do %>
   <td><%= line_item.name %></td>
-  <td><%= number_to_currency line_item.price %></td>
+  <td class="line_item-price"><%= line_item.price %></td>
   <td>
     <div class="controls">
       <span class="delete">
-        <%= link_to content_tag(:span, "", :class => "icon"), line_item, :confirm => 'Вы уверены?', :remote => true, :method => :delete %>
+        <span class="icon"></span>
       </span>
     </div>
   </td>

@@ -31,6 +31,8 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     
-    respond_to :js
+    respond_to do |format|
+      format.json  { head :ok }
+    end
   end
 end

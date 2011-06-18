@@ -253,7 +253,7 @@
 						options.onselect(model);
 					} else {
 						this.val(model.get(options.attr));
-					}
+					}          
 				}
 				list_em.hide();
 				return true;

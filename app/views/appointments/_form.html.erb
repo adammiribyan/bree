@@ -18,11 +18,15 @@
     <thead>
       <tr>
         <th width="70%">Услуга</th>
-        <th width="25%">Стоимость</th>
+        <th width="25%">Стоимость, руб.</th>
         <th width="5%">&nbsp;</th>
       </tr>
     </thead>
     <tfoot>
+      <tr class="summary">
+        <td>Итого</td>
+        <td colspan="2" id="price_sum"><%= Appointment.find(1).line_items.to_a.sum(&:price) %></td>
+      </tr>
       <tr>
         <td colspan="3">
           <div class="input string">
@@ -33,18 +37,16 @@
       </tr>
     </tfoot>
     <tbody>
-      <%= render Appointment.find(1).line_items %>
+      
     </tbody>
   </table>
   
   <script id="line_item_template" type="text/html">
     <td>{{name}}</td>
-    <td>{{price}}</td>
+    <td class="line_item-price">{{price}}</td>
     <td>
       <div class="controls">
-        <span class="delete">
-          <a href="/line_items/{{id}}" data-remote="true" data-confirm="Вы уверены?" data-method="delete"><span class="icon"></span></a>
-        </span>
+        <span class="delete"><span class="icon"></span></span>
       </div>
     </td>
   </script>
