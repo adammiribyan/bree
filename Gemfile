@@ -40,3 +40,7 @@ group :test do
   gem 'mynyml-redgreen'  
   gem 'turn'
 end
+
+group :production do
+  gem 'mustang'
+end
