@@ -2,7 +2,20 @@ class TemplatesController < ApplicationController
   before_filter :hide_sidebar, :only => [ :new, :edit ]
   
   def index
-    @templates = Template.all    
+    @templates = Template.all
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => @templates }
+    end
+  end
+  
+  def show
+    @template = Template.find(params[:id])
+    
+    respond_to do |format|    
+      format.json { render :json => @template }
+    end
   end
   
   def new

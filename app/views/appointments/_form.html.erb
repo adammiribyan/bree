@@ -50,7 +50,7 @@
     <ul id="template_append_buttons">
       <li class="caption">Вставить шаблон:</li>
       <% @templates.each do |template| %>
-        <%= content_tag_for(:li, template) do %>
+        <%= content_tag_for(:li, template, :data => { :id => template.id }) do %>
           <%= template.name %>
         <% end %>
       <% end %>
