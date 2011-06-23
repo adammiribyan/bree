@@ -56,7 +56,7 @@
       <% end %>
       <li><%= link_to "Перейти к шаблонам", templates_path, :class => "admin", :target => "blank" %></li>
     </ul>
-    <%= f.input :history, :hint => "История болезни пациента за это посещение." %>
+    <%= f.input :history, :as => :text, :hint => "История болезни пациента за это посещение." %>
   </fieldset>
   
   <div class="actions">
