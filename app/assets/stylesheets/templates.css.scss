@@ -1,0 +1,31 @@
+// Templates list inside appointment form
+.appointment ul#template_append_buttons {
+  position: relative;
+  list-style: none;
+  margin-bottom: 1em;
+  
+  li {
+    display: inline-block;
+    margin: 0 2px 2px 0;
+    font-size: 0.9166em;
+    
+    &.caption {
+      color: #888;
+    }
+    
+    &.template {
+      background-color: #eee;
+      border: 1px solid #eee;
+      padding: 0 0.75em;      
+      line-height: 2;
+      text-align: center;      
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      
+      &:hover {
+        border-color: #999;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.simple_form.appointment {
+  label[for="appointment_history"] {
+    display: none;
+  }
+  
+  textarea#appointment_history {
+    width: 98%;
+    display: block;
+  }
+  
+  .hint {
+    margin-left: 0 !important;
+  }
+}

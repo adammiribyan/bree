@@ -30,9 +30,7 @@
         </td>
       </tr>
     </tfoot>
-    <tbody>
-      
-    </tbody>
+    <tbody></tbody>
   </table>
   
   <script id="line_item_template" type="text/html">
@@ -44,6 +42,21 @@
       </div>
     </td>
   </script>
+  
+  <hr class="solid" />
+  
+  <fieldset class="last-child">
+    <legend>История</legend>
+    <ul id="template_append_buttons">
+      <li class="caption">Вставить шаблон:</li>
+      <% @templates.each do |template| %>
+        <%= content_tag_for(:li, template) do %>
+          <%= template.name %>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= f.input :history, :hint => "История болезни пациента за это посещение." %>
+  </fieldset>
   
   <div class="actions">
     <%= f.submit "Сохранить" %> или <%= link_to "вернуться назад", :back, :class => "admin" %>

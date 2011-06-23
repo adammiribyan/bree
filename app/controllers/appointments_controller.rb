@@ -32,6 +32,7 @@ class AppointmentsController < ApplicationController
   
   def edit    
     @appointment = Appointment.find(params[:id])
+    @templates = Template.all
   end
 
   # POST /appointments

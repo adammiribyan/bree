@@ -11,10 +11,8 @@ gem 'uglifier'
 
 gem 'ancestry'
 
-gem 'sass'
 gem 'simple_form'
 gem 'russian'
-gem 'high_voltage'
 
 gem 'mini_magick'
 gem 'carrierwave'
@@ -27,9 +25,8 @@ gem 'rdiscount'
 
 group :development do
   gem 'capistrano'
-  # gem 'thin'  
+  gem 'guard'
   gem 'guard-livereload'
-  gem 'guard-sass'
 end
 
 group :test do
