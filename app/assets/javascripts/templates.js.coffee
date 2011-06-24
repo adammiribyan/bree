@@ -15,7 +15,6 @@ jQuery ->
   # Appending templates to history field when template 
   # label is clicked
   ($ "#template_append_buttons").delegate "li", "click", ->
-    console.log("clicked")
     $this = $(@)
     
     field = ($ "textarea#appointment_history")
@@ -25,6 +24,11 @@ jQuery ->
       line_breaks = "\n\n"
     else
       line_breaks = ""
-
-    field.val("#{field.val()}#{line_breaks}#{template.get('body')}")
+    
+    # Appending the template to textarea and focusing it
+    field.val("#{field.val()}#{line_breaks}#{template.get('body')}").focus()
+    
+    # Moving the cursor to the end
+    field_length = field.val().length
+    field.get(0).setSelectionRange(field_length, field_length)
     
