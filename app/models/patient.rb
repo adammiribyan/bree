@@ -12,4 +12,8 @@ class Patient < ActiveRecord::Base
   def abbreviated_name
     "#{self.last_name} #{self.first_name[0]}.#{self.middle_name[0]}."
   end
+  
+  def latest_appointments
+    self.appointments.order("created_at DESC").limit(10) if self.appointments
+  end
 end

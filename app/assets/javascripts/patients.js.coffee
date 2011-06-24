@@ -6,3 +6,14 @@ jQuery ->
 
     $("#patient_profile_form").submit()
     return false
+    
+  # Show other appointments button magic
+  ($ "#show_other_appointments a").bind
+    click: (event) ->
+      event.preventDefault()
+      
+      # Hiding the button and fading up 
+      # the hidden rows
+      $(@).parent().hide()
+      ($ "#recentVisits tbody tr.hidden").fadeIn()
+      

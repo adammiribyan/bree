@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @patient = Patient.find_by_id(params[:patient_id])
-    @appointment = @patient.appointments.build
+    @appointment = @patient.appointments.build(:doctor_id => Doctor.last.id)
     
     if @appointment.save
       redirect_to edit_appointment_path(@appointment)

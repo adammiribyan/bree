@@ -1,5 +1,57 @@
-/* 
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+#recentVisits {
+  thead {
+    td {
+      color: #888;
+    }
+  }
+  
+  tbody {    
+    td {
+      border-bottom: 1px #efefed solid;
+      padding: 4px 0;
+      
+      &.additional {
+        color: #666;
+      }
+    }
+    
+    tr {
+      &.hidden {
+        display: none;
+      }
+      
+      &:last-child {
+        td {
+          border: none;
+        }
+      }
+    }
+  }
+  
+  .dots { display: none; }
+  
+  #show_other_appointments {
+    position: relative;
+    display: block;
+    margin: 0.75em 0 0.4166em;
+    text-align: center;
+    
+    a {
+      background-color: #f1f8fe;
+      border: 1px solid #e5e5e5;
+      padding: 3px 0.75em;      
+      line-height: 2;
+      text-align: center;      
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      text-decoration: none;
+      color: #888;
+      text-shadow: #fff 0px 1px 0px;
+      
+      &:hover {
+        border-color: #999;
+        cursor: pointer;
+      }
+    }
+  }
+}
