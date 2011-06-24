@@ -74,7 +74,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(appointments_url) }
+      format.html { redirect_to(@appointment.patient) }
       format.xml  { head :ok }
     end
   end
