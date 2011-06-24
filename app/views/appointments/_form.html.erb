@@ -6,7 +6,7 @@
       <%= @appointment.patient.abbreviated_name %>
     <% end %>
     <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач" %>
-  </fieldset>  
+  </fieldset>
   
   <table id="line_items_table">
     <thead>
@@ -61,5 +61,13 @@
   
   <div class="actions">
     <%= f.submit "Сохранить" %> или <%= link_to "вернуться назад", :back, :class => "admin" %>
-  </div>
+  </div>  
 <% end %>
+
+<% content_for(:sidebar) { %>  
+  <div class="sidebox-wrapper">
+    <h5>Удалить это посещение?</h5>
+    <p>Это безвозвратно удалит посещение пациента, список оказанных за него услуг и историю болезны из системы. Сами услуги и шаблоны удалены не будут и останутся на своих местах.</p>
+    <p><%= link_to "Удалить", @appointment, :class => "admin", :confirm => "Вы уверены?", :method => :delete %></p>        
+  </div>
+<% } %>
