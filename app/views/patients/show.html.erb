@@ -97,28 +97,30 @@
       <%= link_to truncate(File.basename(@patient.profile.url.to_s), :length => 25), @patient.profile.url, :target => "blank", :id => "patient_profile" %>
     <% end %>
   </div>
-
-  <div id="recentVisits" class="sidebox-wrapper">
-    <h5>Посещения пациента</h5>
-    <table>
-      <thead>
-        <tr>
-          <th>Дата</th>
-          <th>Врач</th>
-        </tr>
-      </thead> 
-      <tbody>
-        <% @patient.appointments.each_with_index do |appointment, index| %>
-          <%= content_tag_for(:tr, appointment, :class => (index > 9) ? "hidden" : "") do %>
-            <td width="45%"><%= link_to (I18n.l appointment.created_at.to_date), edit_appointment_path(appointment) %></td>
-            <td class="additional"><%= appointment.doctor.abbreviated_name if appointment.doctor %></td>
+  
+  <% if @patient.appointments.any? %>
+    <div id="recentVisits" class="sidebox-wrapper">
+      <h5>Посещения пациента</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Врач</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <% @patient.appointments.each_with_index do |appointment, index| %>
+            <%= content_tag_for(:tr, appointment, :class => (index > 9) ? "hidden" : "") do %>
+              <td width="45%"><%= link_to (I18n.l appointment.created_at.to_date), edit_appointment_path(appointment) %></td>
+              <td class="additional"><%= appointment.doctor.abbreviated_name if appointment.doctor %></td>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </table>
-    <div id="show_other_appointments">
-      <div><%= image_tag "dots-white.gif", :class => "dots" %></div>
-      <%= link_to_other_patient_appointments @patient %>
+        </tbody>
+      </table>    
+      <div id="show_other_appointments">
+        <div><%= image_tag "dots-white.gif", :class => "dots" %></div>
+        <%= link_to_other_patient_appointments @patient %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% } %>
