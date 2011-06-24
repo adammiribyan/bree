@@ -3,7 +3,7 @@
     <%= f.input :created_at, :as => :date, :label => "Дата" %>
     <%= content_tag :div, :class => "input" do%>
       <%= f.label "Пациент" %>
-      <%= @appointment.patient.abbreviated_name %>
+      <%= link_to @appointment.patient.abbreviated_name, @appointment.patient %>
     <% end %>
     <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач" %>
   </fieldset>

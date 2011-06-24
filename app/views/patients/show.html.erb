@@ -110,7 +110,7 @@
       <tbody>
         <% @patient.appointments.each_with_index do |appointment, index| %>
           <%= content_tag_for(:tr, appointment, :class => (index > 9) ? "hidden" : "") do %>
-            <td width="55%"><%= link_to "#{time_ago_in_words(appointment.created_at)} назад", edit_appointment_path(appointment) %></td>
+            <td width="45%"><%= link_to (I18n.l appointment.created_at.to_date), edit_appointment_path(appointment) %></td>
             <td class="additional"><%= appointment.doctor.abbreviated_name if appointment.doctor %></td>
           <% end %>
         <% end %>
