@@ -50,15 +50,21 @@ Bree::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  config.action_mailer.default_url_options = { :host => "inmemoria.ru" }
+  config.action_mailer.default_url_options = { :host => "milevedent.adammiribyan.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'inmemoria.ru',
-    :user_name            => 'adam.miribyan',
+    :user_name            => 'adam',
     :password             => 'god.love.sex.',
     :authentication       => 'plain',
     :enable_starttls_auto => true  
   }
+  
+  # Configure exception notification which will be sent to your email
+  config.middleware.use ExceptionNotifier,
+  :email_prefix => "We've got a problem: ",
+  :sender_address => %{"notifier" <notifier@adammiribyan.com>},
+  :exception_recipients => %w{adam.miribyan@gmail.com}
 end
