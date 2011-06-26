@@ -1,7 +1,7 @@
 module Bree
   module Version
     MAJOR = 0
-    MINOR = 5
+    MINOR = 9
     TINY  = 0
     PRE   = ""
 
