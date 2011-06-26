@@ -23,6 +23,8 @@ gem 'jeditable-rails'
 
 gem 'rdiscount'
 
+gem 'exception_notification'
+
 group :development do
   gem 'capistrano'
   gem 'guard'
@@ -39,5 +41,5 @@ group :test do
 end
 
 group :production do
-  gem 'mustang'
+  # gem 'mustang'
 end
