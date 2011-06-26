@@ -36,22 +36,16 @@
       <% end %>
       
       <% if controller.controller_name == "templates" %>
-        <li class="current indented"><%= link_to "Шаблоны", templates_path %></li>      
+        <li class="current"><%= link_to "Шаблоны", templates_path %></li>      
       <% else %>
-        <li class="indented"><%= link_to "Шаблоны", templates_path %></li>
-      <% end %>
-      
-      <% if controller.controller_name == "templates" %>
-        <li class="current"><%= link_to "Статистика", reminders_path %></li>
-      <% else %>
-        <li><%= link_to "Статистика", reminders_path %></li>
+        <li><%= link_to "Шаблоны", templates_path %></li>
       <% end %>
       
       <% if Patient.has_birthday_today.count + Patient.require_inspection.count > 0 %>
         <% if controller.controller_name == "reminders" %>
-          <li class="current"><%= link_to "Напоминания", reminders_path %></li>      
+          <li class="current indented"><%= link_to "Напоминания", reminders_path %></li>      
         <% else %>
-          <li><%= link_to "Напоминания", reminders_path %></li>
+          <li class="indented"><%= link_to "Напоминания", reminders_path %></li>
         <% end %>
       <% end %>
     </ul>    
