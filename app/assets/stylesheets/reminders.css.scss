@@ -1,0 +1,56 @@
+body.reminders {
+  h1.special {
+    .date {
+      display: block;
+      float: right;
+      font-size: 0.633em;
+      color: #888;
+    }
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  #reminders {
+    position: relative;
+    display: block;
+    padding: 0.5em 0.5em 1em 1.9166em;
+    
+    li {
+      border-bottom: 1px solid #efefef;
+      margin-right: 23px;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      a {
+        color: #444;
+        text-decoration: underline;
+        padding: 1px;
+        
+        &:hover {
+          background-color: #444;
+          color: white;
+          text-decoration: none;
+        }
+      }
+      
+      h2 {
+        font-size: 1.333em;
+        font-weight: bold;
+        margin-bottom: 0.25em;      
+        
+        .phone, .title {
+          color: #888;
+          font-size: 0.75em;
+          font-weight: normal;
+          display: inline-block;
+          vertical-align: baseline;
+          margin: 0 0.66667em;
+        }
+      }
+    }
+  }
+}

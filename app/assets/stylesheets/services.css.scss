@@ -20,6 +20,10 @@ table#line_items_table {
   border-collapse: collapse;
   empty-cells: show;
   
+  .icon {
+    cursor: pointer;
+  }
+  
   th {
     border-bottom: 1px solid #ccc;
     font-style: italic;

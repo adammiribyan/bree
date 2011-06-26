@@ -1,4 +1,5 @@
 Bree::Application.routes.draw do
+  resources :reminders, :only => :index  
   resources :line_items
   resources :templates, :except => :show
   resources :comments

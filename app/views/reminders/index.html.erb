@@ -1,0 +1,15 @@
+<% title "Напоминания" %>
+
+<h1 class="special">
+  Напоминания
+  <span class="date"><%= I18n.l Date.today.to_date %></span>
+</h1>
+
+<ul id="reminders">
+  <%= render :partial => "reminder", :collection => @birthdays, :as => "patient", :locals => { :type => "birthday" } %>
+  <%= render :partial => "reminder", :collection => @inspections, :as => "patient", :locals => { :type => "inspection" } %>
+</ul>
+
+<% content_for(:sidebar) { %>
+  <%= render "sidebar" %>
+<% } %>

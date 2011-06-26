@@ -17,7 +17,8 @@ module ApplicationHelper
        controller.controller_name == "categories" ||
        controller.controller_name == "doctors" ||
        controller.controller_name == "templates" ||
-       controller.controller_name == "appointments"
+       controller.controller_name == "appointments" ||
+       controller.controller_name == "reminders"
       
       @body_classes << "form"
     end    

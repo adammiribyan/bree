@@ -1,0 +1,16 @@
+<%= content_tag_for(:li, patient) do %>
+  <h2>
+    <%= link_to patient.full_name, patient %>
+    <span class="phone"><%= patient.phone_number %></span>
+  </h2>  
+  
+  <% if type == "birthday" %>
+  <p>День рождения, <strong><%= patient.age %></strong>.</p>
+  <% elsif type == "inspection" %>
+    <p>
+      Последнее посещение от 
+      <%= link_to "<strong>#{I18n.l(patient.appointments.order("created_at DESC").last.created_at.to_date)}</strong>".html_safe, edit_appointment_path(patient.appointments.order("created_at DESC").last) %>,
+      не помешало бы провести профилактический осмотр.
+    </p>
+  <% end %>
+<% end %>
