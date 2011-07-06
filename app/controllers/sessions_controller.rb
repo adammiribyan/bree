@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class SessionsController < ApplicationController
   skip_before_filter :authorize, :only => [:new, :create, :destroy]
   protect_from_forgery :except => :create
@@ -12,7 +14,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to(root_url, notice: "Logged in!")
     else
-      flash.now.alert = "Invalid password."
+      flash.now.alert = "Введите правильный пароль."
       render action: "new"
     end
   end

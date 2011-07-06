@@ -2,6 +2,10 @@
 
 <div id="login_box">
   <h1><%= AppConfig[:site_name] %></h1>
+  <% if flash.any? %>
+    <span class="error"><%= flash[:alert] %></span>
+  <% end %>
+  
   <%= simple_form_for :session, url: session_path do |f| %>
     <%= f.input :password, required: false, label: "Пароль" %>
     <%= image_submit_tag "btn_sign-in.png", width: "74", height: "33" %>
