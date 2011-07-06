@@ -1,0 +1,60 @@
+html.sessions {
+  height: 100%;
+  background-color: #eee;
+}
+
+body.sessions {
+  $login-box-width: 250px !default;
+  
+  #login_box {
+    position: absolute;
+    display: block;
+    width: $login-box-width;
+    margin-left: -140px;
+    left: 50%;
+    top: $login-box-width;
+    background: #EEE url(<%= asset_path("login_sprites.png") %>) repeat-x left -938px !important;
+    padding: 10px 39px 19px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5em;
+      font-weight: normal;
+      font-size: 1.666em;
+      text-shadow: 0 0 1px #999;
+    }
+    
+    .simple_form {      
+      div.password {
+        width: $login-box-width;
+        margin: 0 auto;
+      }
+      
+      input.password { width: $login-box-width !important; }      
+      input.password, label { font-size: 1.5em;}
+      
+      input[type="image"] { 
+        margin: 0 auto; 
+        position: relative;
+        display: block;
+      }
+      
+      label {
+        color: #888;
+        font-weight: normal;
+        left: 6px;
+        top: 4px;
+        position: absolute;
+        z-index: 1;
+        line-height: 1;
+        vertical-align: middle;
+      }
+    }
+  }
+}
