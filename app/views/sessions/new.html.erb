@@ -1,2 +1,4 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= simple_form_for :session, url: session_path do |f| %>
+  <%= f.input :password %>
+  <%= f.submit "Войти" %>
+<% end %>

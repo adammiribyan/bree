@@ -7,7 +7,3 @@ default:
   # Application link at the footer of each page
   app_name: "Bree"
   app_link: "http://adammiribyan.com"
-  
-  # HTTP Basic authentication
-  auth_name: "admin"
-  auth_password: "admin"

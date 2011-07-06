@@ -12,11 +12,11 @@ Bree::Application.routes.draw do
     resources :appointments
   end
   
-  match 'login' => 'sessions#new', as: 'login'
-  match 'logout' => 'sessions#destroy', as: 'logout', :via => :delete
+  match 'login' => 'sessions#new', as: 'sign_in'
+  match 'logout' => 'sessions#destroy', as: 'sign_out', :via => :delete
 
   get "teeth_charts/update"
-  get "application/autocomplete_patient_full_name"  
+  get "application/autocomplete_patient_full_name"
 
   root :to => "categories#index"
 end
