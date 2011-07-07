@@ -3,7 +3,7 @@ jQuery ->
   ($ "form input.password").focus()
   
   ($ "form.session").submit ->
-    ($ "form.session, span.error").hide()
+    ($ "form.session, span.error, span.notice").hide()
     ($ "#login_loading").show()
     
   ($ "#reset_password a").click ->
