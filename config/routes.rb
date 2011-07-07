@@ -14,6 +14,7 @@ Bree::Application.routes.draw do
   
   match 'login' => 'sessions#new', as: 'sign_in'
   match 'logout' => 'sessions#destroy', as: 'sign_out', :via => :delete
+  match 'reset_password' => 'sessions#reset_password', as: 'reset_password'
 
   get "teeth_charts/update"
   get "application/autocomplete_patient_full_name"

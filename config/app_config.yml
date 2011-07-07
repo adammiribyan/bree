@@ -7,3 +7,6 @@ default:
   # Application link at the footer of each page
   app_name: "Bree"
   app_link: "http://adammiribyan.com"
+  
+  # Admin
+  admin_email: "adam.miribyan@gmail.com"
