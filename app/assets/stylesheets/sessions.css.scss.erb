@@ -29,13 +29,36 @@ body.sessions {
       display: none;
     }
     
-    span.error {
+    div#reset_password {
+      position: relative;
+      display: block;
+      left: 0;      
+      
+      a {
+        padding: 1px;
+        
+        &:link, &:visited {
+          color: red;
+          text-decoration: underline;
+        }
+        
+        &:hover {
+          color: white;
+          background-color: red;
+          text-decoration: none;
+        }
+      }
+    }
+    
+    span.error, span.notice {
       display: block;
       position: relative;
-      text-align: center;
-      color: red;
+      text-align: center;      
       margin-bottom: 0.5em;
     }
+    
+    span.error { color: red; }
+    span.notice { color: green; }
     
     h1 {
       text-align: center;
@@ -49,6 +72,7 @@ body.sessions {
       div.password {
         width: $login-box-width;
         margin: 0 auto;
+        padding-bottom: 3px !important;
       }
       
       input.password { width: $login-box-width !important; }      
@@ -58,6 +82,7 @@ body.sessions {
         margin: 0 auto; 
         position: relative;
         display: block;
+        margin-top: 1.083em;
       }
       
       label {

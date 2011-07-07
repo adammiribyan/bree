@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class SessionsController < ApplicationController
-  skip_before_filter :authorize, :only => [:new, :create, :destroy]
+  skip_before_filter :authorize, :only => [:new, :create, :destroy, :reset_password]
   protect_from_forgery :except => :create
   
   def new
@@ -22,6 +22,16 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to(root_url, notice: "Logged out!")
+  end
+  
+  def reset_password
+    user = User.find_by_username("admin")
+    
+    if password = user.update_password
+      UserMailer.new_password(password).deliver
+    end
+    
+    respond_to :js
   end
 
 end

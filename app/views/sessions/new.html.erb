@@ -1,13 +1,20 @@
-<% title "Вход" %>
+<% title AppConfig[:site_name] %>
 
 <div id="login_box">
   <h1><%= AppConfig[:site_name] %></h1>
+  
+  <span class="notice"></span>
   <% if flash.any? %>
     <span class="error"><%= flash[:alert] %></span>
-  <% end %>
+  <% end %>  
   
   <%= simple_form_for :session, url: session_path do |f| %>
     <%= f.input :password, required: false, label: "Пароль" %>
+    
+    <% if flash[:alert].present? %>
+      <div id="reset_password"><%= link_to "Забыли пароль?", reset_password_path, remote: true %></div>
+    <% end %>
+    
     <%= image_submit_tag "btn_sign-in.png", width: "74", height: "33" %>
   <% end %>
   

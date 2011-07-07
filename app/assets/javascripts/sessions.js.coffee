@@ -6,3 +6,6 @@ jQuery ->
     ($ "form.session, span.error").hide()
     ($ "#login_loading").show()
     
+  ($ "#reset_password a").click ->
+    ($ "form.session, span.error, #reset_password").hide()
+    ($ "#login_loading").show()    
