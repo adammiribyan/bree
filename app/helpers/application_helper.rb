@@ -19,7 +19,8 @@ module ApplicationHelper
        controller.controller_name == "templates" ||
        controller.controller_name == "appointments" ||
        controller.controller_name == "reminders" ||
-       controller.controller_name == "sessions"
+       controller.controller_name == "sessions" ||
+       controller.controller_name == "statistics"
       
       @body_classes << "form"
     end    

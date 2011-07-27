@@ -1,5 +1,5 @@
 module Statistics
-  class Ranges
+  class Range
     RANGES = {
       today: "Date.today",
       tomorrow: "Date.tomorrow",
@@ -9,6 +9,14 @@ module Statistics
       year: "1.year.ago..Date.today"
     }
     
+    def initialize(range = "today")      
+      @range = RANGES[range.to_sym]
+    end
+    
+    def interval
+      class_eval @range
+    end
+            
     class << self
       RANGES.each do |method_name, range|
         define_method(method_name.to_s) do

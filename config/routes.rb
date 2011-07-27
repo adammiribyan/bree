@@ -1,12 +1,12 @@
 Bree::Application.routes.draw do
   resource  :session, controller: 'sessions', only: [:new, :create, :destroy]
-  resources :reminders, :only => :index  
+  resources :reminders, :only => :index
   resources :line_items
   resources :templates, :except => :show
   resources :comments
   resources :doctors
   resources :services
-  resources :categories  
+  resources :categories
   resources :teeth_charts
   resources :patients, :shallow => true do
     resources :appointments
@@ -18,6 +18,8 @@ Bree::Application.routes.draw do
 
   get "teeth_charts/update"
   get "application/autocomplete_patient_full_name"
-
+  
+  get "statistics/(:range)" => "statistics#index", as: "statistics"
+  
   root :to => "categories#index"
 end

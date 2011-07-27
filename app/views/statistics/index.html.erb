@@ -1,0 +1,20 @@
+<% title "Статистика" %>
+
+<h1 class="special">Статистика</h1>
+
+<div class="liner">
+  <ul id="ranges">
+    <li class="label">За</li>
+    <li <%= selected_if_range_eq(:today) %>><%= link_to "сегодня", range: "today" %></li>
+    <li <%= selected_if_range_eq(:tomorrow) %>><%= link_to "вчера", range: "tomorrow" %></li>
+    <li <%= selected_if_range_eq(:week) %>><%= link_to "неделю", range: "week" %></li>
+    <li <%= selected_if_range_eq(:month) %>><%= link_to "месяц", range: "month" %></li>
+    <li <%= selected_if_range_eq(:quarter) %>><%= link_to "квартал", range: "quarter" %></li>
+    <li <%= selected_if_range_eq(:year) %>><%= link_to "год", range: "year" %></li>
+  </ul>
+  hjfkds
+</div>
+
+<% content_for(:sidebar) { %>
+  <%= render "sidebar" %>
+<% } %>
