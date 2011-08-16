@@ -12,7 +12,26 @@
     <li <%= selected_if_range_eq(:quarter) %>><%= link_to "квартал", range: "quarter" %></li>
     <li <%= selected_if_range_eq(:year) %>><%= link_to "год", range: "year" %></li>
   </ul>
-  hjfkds
+  
+  <table id="statistics_table">
+    <thead>
+      <tr>
+        <th></td>
+        <th>Оказано услуг на сумму</th>
+        <th>Посещения</th>
+        <th>Новые пациенты</th>
+      </tr>      
+    </thead>
+    <tbody>
+      <tr>
+        <td>Общее</td>
+        <td><%= number_to_currency services_price_sum %></td>
+        <td><%= appointments_count %></td>
+        <td><%= new_patients_count %></td>
+      </tr>
+      <%= render partial: "doctor", collection: Doctor.all, as: "doctor" %>
+    </tbody>
+  </table>
 </div>
 
 <% content_for(:sidebar) { %>

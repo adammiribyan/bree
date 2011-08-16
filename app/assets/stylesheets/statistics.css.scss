@@ -1,7 +1,7 @@
 ul#ranges {
   position: relative;
   list-style: none;
-  margin: 0.75em 0 1em 0;
+  margin: 0.75em 0 3em 0;
   
   li {
     display: inline-block;
@@ -16,7 +16,6 @@ ul#ranges {
     }
     
     &.label {
-      font-weight: bold;
       margin-right: 0.5em;
     }
     
@@ -37,4 +36,69 @@ ul#ranges {
       }
     }
   }  
+}
+
+table#statistics_table {
+  width: 100%;
+  margin: 1.5em 0 0 0;
+  
+  a {
+    color: #444;
+    text-decoration: underline;
+    padding: 1px;
+    
+    &:hover {
+      background-color: #444;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  thead {
+    th {
+      font-style: italic;
+      color: #333;
+      padding: 0 0 0.5em 0;
+      border-bottom: 1px solid #888;
+      text-align: center;
+    }
+  }
+  
+  tbody {
+    tr {
+      &:first-child {
+        font-size: 125%;
+        
+        td {
+          border-bottom: 3px solid #dadee5;
+          
+          &:first-child {
+            font-weight: bold;
+          }
+        }
+      }
+      
+      &.odd {
+        background-color: #f1f8fe;
+      }
+      
+      td {
+        padding: 1em;
+        vertical-align: middle;
+        text-align: center;  
+        
+        &.preview {
+          img {
+            // -webkit-border-radius: 2px;
+            // border-radius: 2px;
+          }
+          
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
 }

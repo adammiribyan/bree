@@ -48,6 +48,12 @@
           <li class="indented"><%= link_to "Напоминания", reminders_path %></li>
         <% end %>
       <% end %>
+      
+      <% if controller.controller_name == "statistics" %>
+        <li class="current"><%= link_to "Статистика", statistics_path %></li>      
+      <% else %>
+        <li><%= link_to "Статистика", statistics_path %></li>
+      <% end %>
     </ul>    
   </div>  
 </div>

@@ -9,7 +9,7 @@ module Statistics
       year: "1.year.ago..Date.today"
     }
     
-    def initialize(range = "today")      
+    def initialize(range = "today")
       @range = RANGES[range.to_sym]
     end
     
@@ -24,5 +24,5 @@ module Statistics
         end
       end
     end
-  end  
+  end
 end

@@ -1,0 +1,9 @@
+<tr class="<%= cycle("odd", "even") -%>">
+  <td class="preview">
+    <%= photo_of doctor %>
+    <p class="name"><%= link_to doctor.abbreviated_name, edit_doctor_path(doctor) %></p>
+  </td>
+  <td><%= number_to_currency services_price_sum(doctor) %></td>
+  <td><%= appointments_count(doctor) %></td>
+  <td><%= new_patients_count(doctor) %></td>
+</tr>
