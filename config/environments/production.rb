@@ -56,7 +56,7 @@ Bree::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :user_name            => 'adam.miribyan',
-    :password             => 'god.love.sex.',
+    :password             => 'au72coUX',
     :authentication       => 'plain',
     :enable_starttls_auto => true  
   }
