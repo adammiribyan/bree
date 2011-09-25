@@ -1,5 +1,5 @@
 <tr>
   <td><%= link_to patient.full_name, patient %></td>
   <td><%= patient.age %></td>
-  <td><%= l(patient.appointments.last.created_at.to_date) %></td>
+  <td><time datetime="<%= patient.appointments.last.created_at %>"><%= link_to l(patient.appointments.last.created_at.to_date), edit_appointment_path(patient.appointments.last) %></time></td>
 </tr>

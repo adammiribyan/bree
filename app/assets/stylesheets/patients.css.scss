@@ -68,15 +68,63 @@ table#patients-list {
   border-spacing: 0px 0px;
   border-collapse: collapse;
   empty-cells: show;
+  margin-top: 1.5em;
   
   $spacing: 0.4166em;
   
   thead {
-    background-color: #E9E9E9;    
+    // background-color: #E9E9E9;    
     
     th {
       font-weight: bold;
       padding: $spacing;
+      border-bottom: 1px solid #dadee5;    
+    }
+      
+    // Tablesorting styles w/ jQuery plugin
+    .header {
+        cursor: pointer;
+      &:after {
+        content: "";
+        float: right;
+        margin-top: 7px;
+        border-width: 0 4px 4px;
+        border-style: solid;
+        border-color: #000 transparent;
+        visibility: hidden;
+      }
+    }
+    // Style the sorted column headers (THs)
+    .headerSortUp,
+    .headerSortDown {
+      background-color: #f1f8fe;
+      text-shadow: 0 1px 1px rgba(255,255,255,.75);
+    }
+    // Style the ascending (reverse alphabetical) column header
+    .header:hover {
+      &:after {
+        visibility:visible;
+      }
+    }
+    // Style the descending (alphabetical) column header
+    .headerSortDown,
+    .headerSortDown:hover {
+      &:after {
+        visibility:visible;
+        // .opacity(60);
+      }
+    }
+    // Style the ascending (reverse alphabetical) column header
+    .headerSortUp {
+      &:after {
+        border-bottom: none;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #000;
+        visibility:visible;
+        // .box-shadow(none); //can't add boxshadow to downward facing arrow :(
+        // .opacity(60);
+      }
     }
   }
   
@@ -85,5 +133,24 @@ table#patients-list {
     padding: $spacing;
     border-bottom: 1px solid #efefef;    
     vertical-align: top;
+  }
+  
+  tbody {
+    
+    a {
+      color: #444;
+      text-decoration: underline;
+      padding: 1px;
+      
+      &:hover {
+        background-color: #444;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    
+    tr:nth-child(odd) td {
+      background-color: #f9f9f9;
+    }
   }
 }

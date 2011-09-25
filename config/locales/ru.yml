@@ -16,7 +16,7 @@ ru:
     formats:
       default: "%e %B %Y"
       long: "%e %B %Y"
-      short: "%e/%m/%y"
+      short: "%e.%m.%y"
       dot_separated: "%e.%m"
       highlighted_day: "<em>%e</em>%B"
       weekday: "%A"
