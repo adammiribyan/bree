@@ -10,6 +10,7 @@
 //= require jquery_autoresize
 //= require jquery_jeditable
 //= require jquery_infield_labels
+//= require jquery_tablesorter
 //= require autocomplete_rails
 //= require pjax
 //= require search_field
