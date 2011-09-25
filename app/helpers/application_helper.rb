@@ -21,7 +21,7 @@ module ApplicationHelper
        controller.controller_name == "reminders" ||
        controller.controller_name == "sessions" ||
        controller.controller_name == "statistics" ||
-       controller.controller_name == "patients"
+       (controller.controller_name == "patients" && controller.action_name == "index")
       
       @body_classes << "form"
     end    
