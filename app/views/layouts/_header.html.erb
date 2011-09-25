@@ -22,6 +22,11 @@
     </div>
     <ul class="navigation-tabs">
 
+      <% if controller.controller_name == "patients" %>
+        <li class="current"><%= link_to "Пациенты", patients_path %></li>
+      <% else %>
+        <li><%= link_to "Пациенты", patients_path %></li>
+      <% end %>
       
       <% if controller.controller_name == "doctors" %>
         <li class="current"><%= link_to "Врачи", doctors_path %></li>

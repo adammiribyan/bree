@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to patient.full_name, patient %></td>
+  <td><%= patient.age %></td>
+  <td><%= l(patient.appointments.last.created_at.to_date) %></td>
+</tr>

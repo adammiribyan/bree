@@ -1,0 +1,18 @@
+<% title "Пациенты" %>
+
+<h1 class="special">Пациенты</h1>
+
+<div id="patients">
+  <table id="patients-list">
+    <thead>
+      <tr>
+        <th><span>Имя</span></th>
+        <th width="15%"><span>Возраст</span></th>
+        <th width="30%"><span>Последнее посещение</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @patients %>
+    </tbody>
+  </table>
+</div>

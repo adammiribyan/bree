@@ -55,3 +55,35 @@
     }
   }
 }
+
+#patients {
+  position: relative;
+  display: block;
+  padding: 0.5em 0.5em 1em 1.9166em;
+}
+
+table#patients-list {
+  width: 100%;
+  margin-bottom: 2.1666em;
+  border-spacing: 0px 0px;
+  border-collapse: collapse;
+  empty-cells: show;
+  
+  $spacing: 0.4166em;
+  
+  thead {
+    background-color: #E9E9E9;    
+    
+    th {
+      font-weight: bold;
+      padding: $spacing;
+    }
+  }
+  
+  td {
+    font-size: 1.1666em;
+    padding: $spacing;
+    border-bottom: 1px solid #efefef;    
+    vertical-align: top;
+  }
+}
