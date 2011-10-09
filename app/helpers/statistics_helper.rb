@@ -42,4 +42,24 @@ module StatisticsHelper
       Patient.where(created_at: @range.interval).count
     end
   end
+  
+  def primary_patients_count
+    primary_patients = []
+    
+    Patient.where(created_at: @range.interval).each do |patient|
+      primary_patients << patient if patient.appointments.count == 1
+    end
+    
+    return primary_patients.count
+  end
+  
+  def secondary_patients_count
+    secondary_patients = []
+    
+    Patient.where(created_at: @range.interval).each do |patient|
+      secondary_patients << patient if patient.appointments.count > 1
+    end
+    
+    return secondary_patients.count
+  end
 end

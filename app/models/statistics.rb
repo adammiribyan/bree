@@ -24,5 +24,5 @@ module Statistics
         end
       end
     end
-  end
+  end  
 end

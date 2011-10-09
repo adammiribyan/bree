@@ -13,6 +13,18 @@
     <li <%= selected_if_range_eq(:year) %>><%= link_to "год", range: "year" %></li>
   </ul>
   
+  <% if params[:range] == "year" %>
+  <div style="margin-bottom: 2.083em;">
+    <p style="text-align: right;">
+      <%= primary_patients_count %> 
+      <%= Russian.p(primary_patients_count, 'первичный', 'первичных', 'первичных') %> 
+      <%= Russian.p(primary_patients_count, 'пациент', 'пациента', 'пациентов') %> и 
+      <%= secondary_patients_count %> 
+      <%= Russian.p(secondary_patients_count, 'вторичный', 'вторичных', 'вторичных') %>.
+    </p>
+  </div>
+  <% end %>
+  
   <table id="statistics_table">
     <thead>
       <tr>
