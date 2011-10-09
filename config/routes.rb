@@ -9,7 +9,9 @@ Bree::Application.routes.draw do
   resources :categories
   resources :teeth_charts
   resources :patients, :shallow => true do
-    resources :appointments
+    resources :appointments do
+      match 'print', as: "print", :on => :member, 
+    end
   end
   
   match 'login' => 'sessions#new', as: 'sign_in'

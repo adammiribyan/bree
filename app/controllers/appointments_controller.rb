@@ -9,6 +9,10 @@ class AppointmentsController < ApplicationController
       format.xml  { render :xml => @appointments }
     end
   end
+  
+  def print
+    @appointments = Appointment.find(params[:id])
+  end
 
   # GET /appointments/1
   # GET /appointments/1.xml
