@@ -16,10 +16,10 @@
   <% if params[:range] == "year" %>
   <div style="margin-bottom: 2.083em;">
     <p style="text-align: right;">
-      <%= primary_patients_count %> 
+      <em><%= primary_patients_count %></em> 
       <%= Russian.p(primary_patients_count, 'первичный', 'первичных', 'первичных') %> 
       <%= Russian.p(primary_patients_count, 'пациент', 'пациента', 'пациентов') %> и 
-      <%= secondary_patients_count %> 
+      <em><%= secondary_patients_count %></em> 
       <%= Russian.p(secondary_patients_count, 'вторичный', 'вторичных', 'вторичных') %>.
     </p>
   </div>
