@@ -41,5 +41,5 @@ group :test do
 end
 
 group :production do
-  # gem 'therubyracer'
+  gem 'therubyracer'
 end
