@@ -11,7 +11,10 @@ class AppointmentsController < ApplicationController
   end
   
   def print
-    @appointments = Appointment.find(params[:id])
+    @appointment = Appointment.find(params[:id])
+    @patient = @appointment.patient
+    
+    render layout: "print"
   end
 
   # GET /appointments/1

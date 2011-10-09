@@ -1,0 +1,40 @@
+<h1>ООО «<%= AppConfig[:site_name] %>»</h1>
+
+<p>
+  <strong>Наряд на производство зуботехнических работ №<%= @appointment.id.to_s %> от <%= l(@appointment.created_at.to_date) %>.</strong><br />
+  <strong>Медицинская карта стоматологического больного №<%= @appointment.patient.id.to_s %> от <%= l(@appointment.patient.created_at.to_date) %>.</strong>
+</p>
+
+<p>
+  <strong>Ф.И.О пациента:</strong> <%= @appointment.patient.full_name %><br />
+  <strong>Ф.И.О врача:</strong> <%= @appointment.doctor.abbreviated_name %>
+  <% if @appointment.technician_name.present? %>
+  <br /><strong>Ф.И.О зубного техника:</strong> <%= @appointment.technician_name %>
+  <% end %>
+</p>
+
+<%= render partial: "patients/teeth_chart" %>
+
+<table class="appointment_line_items">
+  <thead>
+    <tr>
+      <th width="80%">Вид работы</th>
+      <th>Стоимость</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="2">
+        <strong>Итого:</strong> <%= number_to_currency @appointment.line_items.to_a.sum(&:price) %>
+      </td>
+    </tr>
+  </tfott>
+  <tbody>
+  <% @appointment.line_items.each do |line_item| %>
+    <tr>
+      <td><%= line_item.service.name %></td>
+      <td><%= number_to_currency line_item.service.price %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

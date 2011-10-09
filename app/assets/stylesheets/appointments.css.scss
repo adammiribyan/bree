@@ -12,7 +12,89 @@
     padding: 0.4166em;
   }
   
+  input#appointment_technician_name {
+    width: 36%;
+  }
+  
   .hint {
     margin-left: 0 !important;
   }
 }
+
+@media screen, print {  
+body.print {
+  h1 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 30px 0;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  table {
+    width: 100%;
+    
+    th, td {
+      border: 1px solid black;
+      padding: 2px;
+    }
+  }
+  
+  table.appointment_line_items {
+    margin-top: 46px;
+    
+    thead {
+      th {
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    
+    tbody {
+      td:last-child {
+        text-align: right;
+      }
+    }
+    
+    tfoot {
+      font-size: 105%;
+      
+      td {
+        text-align: right;
+      }
+    }
+  }
+  
+  table.patient_teeth_chart {
+    margin-top: 32px;
+    
+    tr:first-child {
+      vertical-align: bottom;
+      
+      label {
+        margin-top: 5px;
+      }
+    }
+    
+    tr:last-child {
+      vertical-align: top;
+      
+      label {
+        margin-bottom: 5px;
+      }
+    }
+    
+    td {
+      text-align: center;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+  }
+}
+}  

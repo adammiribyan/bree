@@ -4,8 +4,10 @@
     <%= content_tag :div, :class => "input" do%>
       <%= f.label "Пациент" %>
       <%= link_to @appointment.patient.abbreviated_name, @appointment.patient %>
+      <small style="margin-left: 0.83em; color: #666;">Карта №<%= @appointment.id %>.</small>
     <% end %>
     <%= f.association :doctor, :label_method => :abbreviated_name, :include_blank => false, :label => "Врач" %>
+    <%= f.input :technician_name, :label => "Зубной техник" %>
   </fieldset>
   
   <table id="line_items_table">
@@ -73,6 +75,6 @@
   
   <div class="sidebox-wrapper">
     <h5>Документы</h5>
-    <%= link_to "Распечатать наряд", print_appointment_path(@appointment), class: "admin" %> на основе этого посещения.
+    <%= link_to "Распечатать наряд", print_appointment_path(@appointment), class: "admin", target: "_blank" %> на основе этого посещения.
   </div>
 <% } %>
