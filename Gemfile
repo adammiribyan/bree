@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc3'
+gem 'rails', '3.1.0'
 
 gem 'mysql2'
 gem 'unicode'
@@ -41,5 +41,5 @@ group :test do
 end
 
 group :production do
-  gem 'mustang'
+  # gem 'therubyracer'
 end
